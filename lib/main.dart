@@ -5,43 +5,21 @@
 
 import 'package:flutter/material.dart';
 import './textControl.dart';
-import './textName.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final List<String> _name = const ['Desir', 'Binyamine', 'Yacine', 'Raït'];
-  int nameIndex = 0;
-
-  void nextName() {
-    setState(() {
-      nameIndex += 1;
-    });
-    print(_name[nameIndex]);
-  }
-
+class MyApp extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Assignment'),
+          title: Text('Change the text '),
         ),
-        body: nameIndex < _name.length
-            ? Column(children: [
-                TextName(_name,nameIndex),
-                TextControl(nextName)
-              ])
-            : Center(
-                child: Text('Sucess'),
-              ),
+        body: TextControl()
       ),
     );
   }
